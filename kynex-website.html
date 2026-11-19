@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KYNEX | Kinetic flooring that turns footsteps into clean power</title>
+<meta name="description" content="KYNEX modular kinetic floor tiles convert pedestrian traffic into clean electricity for high-traffic spaces.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{--bg:#0B0E14;--bg2:#12161F;--bd:#232A38;--tx:#E8ECF4;--mu:#8D97AB;--g:#00E599;--g2:#10B981;--c:#22D3EE}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--tx);font:16px/1.6 'Sora',system-ui,sans-serif;font-variant-numeric:tabular-nums;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+svg.lucide{width:1.25em;height:1.25em;stroke-width:1.75}
+.wrap{max-width:1180px;margin:auto;padding:0 clamp(18px,4vw,32px)}
+section{padding:clamp(64px,10vw,120px) 0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;font-weight:600}
+h2{font-size:clamp(28px,4.2vw,44px);max-width:20ch}
+.lead{color:var(--mu);max-width:56ch;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;border:1px solid var(--bd);font:500 15px 'Sora',sans-serif;color:var(--tx);background:transparent;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.btn:hover{border-color:var(--g)}
+.btn.pri{background:var(--g);border-color:var(--g);color:#031a12;font-weight:600}.btn.pri:hover{background:#3df0b3}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px}
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(11,14,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.sc{border-color:var(--bd)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.16em;font-size:18px}
+.menu{display:flex;gap:30px;color:var(--mu);font-size:14.5px}.menu a:hover{color:var(--tx)}
+.burger{display:none;background:none;border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px;cursor:pointer}
+@media(max-width:860px){.menu{position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--bd);display:none}.menu.open{display:flex}.menu a{padding:15px 24px;border-top:1px solid var(--bd)}.burger{display:block}.nav .btn{display:none}}
+/* hero */
+.hero{padding-top:clamp(40px,7vw,90px);background:radial-gradient(900px 500px at 78% 10%,rgba(0,229,153,.10),transparent 60%),radial-gradient(600px 400px at 10% 0,rgba(34,211,238,.07),transparent 60%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:700;letter-spacing:-.035em}
+.hero .lead{font-size:17px}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.tag{margin-top:34px;color:var(--mu);font-size:13.5px;border-left:2px solid var(--g);padding-left:12px}
+@media(max-width:940px){.hero .wrap{grid-template-columns:1fr}}
+/* simulator */
+.sim{background:var(--bg2);border:1px solid var(--bd);border-radius:18px;padding:22px;box-shadow:0 30px 80px -30px rgba(0,229,153,.25)}
+.sim h3{font-size:15px;font-weight:600}.sim .hint{color:var(--mu);font-size:13px;margin:2px 0 14px}
+.stage{position:relative;padding-top:42px}
+.walker{position:absolute;top:0;left:-8%;width:34px;margin-left:-17px;color:var(--c);transition:left .3s linear;opacity:0}
+.walker svg{width:34px;height:34px}.walker.nt{transition:none}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;perspective:500px}
+.tile{height:46px;border-radius:8px;border:1px solid #2c3546;background:linear-gradient(#262e3d,#1a2030);cursor:pointer;transform:rotateX(38deg);transition:transform .12s,box-shadow .12s,border-color .12s;position:relative}
+.tile::after{content:"";position:absolute;inset:6px;border:1px dashed #384359;border-radius:4px}
+.tile:hover{border-color:var(--g)}
+.tile.dn{transform:rotateX(38deg) translateY(10px);border-color:var(--g);box-shadow:0 0 22px rgba(0,229,153,.55)}
+.rail{height:3px;margin:14px 0 18px;border-radius:3px;background:var(--bd);position:relative;overflow:hidden}
+.rail i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--g),transparent);transform:translateX(-100%)}
+.rail.fl i{animation:fl .6s ease-out}@keyframes fl{to{transform:translateX(100%)}}
+.out{display:grid;grid-template-columns:auto 1fr;gap:14px 18px;align-items:center}
+.gen{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;background:#0B0E14;border:1px solid var(--bd);color:var(--g)}
+.gen svg{width:28px;height:28px}.gen.sp svg{animation:sp .9s ease-out}@keyframes sp{to{transform:rotate(300deg)}}
+.meter{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}.meter span{height:12px;border-radius:3px;background:#1c2331;transition:background .15s,box-shadow .15s}
+.meter span.on{background:var(--g);box-shadow:0 0 8px rgba(0,229,153,.6)}
+.meter span.on:nth-child(n+8){background:var(--c);box-shadow:0 0 8px rgba(34,211,238,.6)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.stats div{border:1px solid var(--bd);border-radius:10px;padding:10px 12px}.stats small{display:block;color:var(--mu);font-size:11.5px}.stats b{font-size:18px;font-weight:600}
+.ctl{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.ctl .btn{padding:9px 16px;font-size:13.5px}
+.btn[aria-pressed=true]{border-color:var(--c);color:var(--c)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;position:relative}
+.step{background:var(--bg2);border:1px solid var(--bd);border-radius:16px;padding:24px;position:relative}
+.js .step{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}.js .step.in{opacity:1;transform:none}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--g);color:var(--g);font-size:13px;font-weight:600}
+.step .ic{float:right;color:var(--c);width:44px;height:44px;border-radius:12px;background:#0B0E14;border:1px solid var(--bd);display:grid;place-items:center}
+.step h3{font-size:19px;margin:22px 0 8px}.step p{color:var(--mu);font-size:14.5px}
+.step:not(:last-child)::after{content:"";position:absolute;top:41px;right:-19px;width:20px;height:2px;background:linear-gradient(90deg,var(--g),var(--c))}
+.spin svg{animation:sp2 6s linear infinite}@keyframes sp2{to{transform:rotate(360deg)}}
+@media(max-width:1000px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(2)::after{display:none}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}.step::after{display:none}}
+/* spaces */
+.alt{background:var(--bg2);border-block:1px solid var(--bd)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.sp{border-radius:18px;border:1px solid var(--bd);background:var(--bg);overflow:hidden;display:flex;flex-direction:column}
+.sp .top{height:150px;display:grid;place-items:center;color:var(--g)}
+.sp .top svg{width:56px;height:56px;stroke-width:1.25}
+.sp:nth-child(1) .top{background:radial-gradient(circle at 30% 20%,rgba(0,229,153,.28),transparent 65%),#0e131c}
+.sp:nth-child(2) .top{background:radial-gradient(circle at 70% 20%,rgba(34,211,238,.28),transparent 65%),#0e131c;color:var(--c)}
+.sp:nth-child(3) .top{background:radial-gradient(circle at 50% 80%,rgba(16,185,129,.28),transparent 65%),#0e131c}
+.sp .b{padding:22px}.sp h3{font-size:19px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{border:1px solid var(--bd);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mu)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+/* impact */
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.val{padding:26px;border-radius:16px;border:1px solid var(--bd);background:var(--bg2)}
+.val svg{color:var(--g);width:28px;height:28px;margin-bottom:18px}.val h3{font-size:19px;margin-bottom:8px}.val p{color:var(--mu);font-size:14.5px}
+.sup{margin-top:18px;border:1px solid var(--bd);border-radius:16px;padding:26px;display:grid;grid-template-columns:1.1fr 2fr;gap:26px;align-items:center;background:linear-gradient(120deg,rgba(0,229,153,.08),transparent 60%)}
+.sup h3{font-size:21px}.sup ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sup li{display:flex;gap:10px;font-size:14.5px;color:var(--mu)}.sup li svg{color:var(--c);flex:none;margin-top:2px}
+@media(max-width:900px){.vals,.sup,.sup ul{grid-template-columns:1fr}}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:start}
+.form{background:var(--bg2);border:1px solid var(--bd);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form label{display:grid;gap:6px;font-size:13.5px;color:var(--mu)}.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{font:inherit;font-size:15px;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:11px 13px;width:100%}
+.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--c);outline-offset:0;border-color:transparent}
+.form textarea{min-height:96px;resize:vertical}
+.ok{text-align:center;padding:36px 12px;grid-column:1/-1}.ok svg{width:52px;height:52px;color:var(--g);margin-bottom:14px}.ok h3{font-size:24px;margin-bottom:8px}.ok p{color:var(--mu);margin-bottom:20px}
+@media(max-width:900px){.ct{grid-template-columns:1fr}}@media(max-width:520px){.form{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--bd);padding:44px 0 36px;color:var(--mu);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+footer .l{display:flex;gap:22px;flex-wrap:wrap}footer .l a:hover{color:var(--tx)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .step{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav"><div class="wrap">
+  <a class="logo" href="#solution" aria-label="KYNEX home">
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" fill="none" stroke="#00E599" stroke-width="2"/><path d="M9 23h14M16 21V9M10.5 14.5 16 9l5.5 5.5" fill="none" stroke="#00E599" stroke-width="2.5" stroke-linecap="square"/></svg>KYNEX
+  </a>
+  <nav class="menu" id="menu"><a href="#solution">Solution</a><a href="#how">How It Works</a><a href="#spaces">Spaces</a><a href="#impact">Impact</a></nav>
+  <a class="btn pri" href="#contact">Request a Proposal</a>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+</div></header>
+
+<section class="hero" id="solution"><div class="wrap">
+  <div>
+    <h1>Turn every footstep into clean power.</h1>
+    <p class="lead">Daily footsteps in busy spaces are an untapped kinetic energy reservoir. KYNEX modular floor tiles capture that movement and convert it into usable electricity, right where people already walk.</p>
+    <div class="cta"><a class="btn pri" href="#contact">Request a Proposal <i data-lucide="arrow-up-right"></i></a><a class="btn" href="#how">Explore the System</a></div>
+    <p class="tag">Seamlessly capturing pedestrian traffic to generate clean electrical power.</p>
+  </div>
+  <div class="sim" id="sim">
+    <h3>Walk the KYNEX floor</h3><p class="hint">Tap a tile or send a walker and watch the power respond.</p>
+    <div class="stage">
+      <div class="walker nt" id="walker"><i data-lucide="person-standing"></i></div>
+      <div class="tiles" id="tiles"></div>
+      <div class="rail" id="rail"><i></i></div>
+    </div>
+    <div class="out"><div class="gen" id="gen"><i data-lucide="settings"></i></div><div><div class="meter" id="meter" aria-label="Power output"></div></div></div>
+    <div class="stats"><div><small>Footsteps</small><b id="s1">0</b></div><div><small>Energy</small><b id="s2">0.00 mWh</b></div><div><small>1 W LED lit for</small><b id="s3">0 s</b></div></div>
+    <div class="ctl"><button class="btn pri" id="walk">Send a walker</button><button class="btn" id="rush" aria-pressed="false">Rush hour</button><button class="btn" id="rst">Reset</button></div>
+  </div>
+</div></section>
+
+<section id="how" class="alt"><div class="wrap">
+  <h2>From footstep to electricity in four moves.</h2>
+  <p class="lead">A purely mechanical chain of springs, gears and a DC motor, built into a modular tile.</p>
+  <div class="steps">
+    <article class="step"><div class="ic"><i data-lucide="footprints"></i></div><span class="n">01</span><h3>Downward impact</h3><p>A pedestrian footstep triggers a smooth downward movement of the tile.</p></article>
+    <article class="step"><div class="ic"><i data-lucide="rotate-cw"></i></div><span class="n">02</span><h3>Reverse Scotch yoke</h3><p>Converts the linear downward displacement directly into rotational torque.</p></article>
+    <article class="step"><div class="ic spin"><i data-lucide="settings"></i></div><span class="n">03</span><h3>Compound gear</h3><p>A compound gear series multiplies rotational speed exponentially.</p></article>
+    <article class="step"><div class="ic"><i data-lucide="zap"></i></div><span class="n">04</span><h3>DC generation</h3><p>High-speed rotation spins the DC motor to produce electrical energy.</p></article>
+  </div>
+</div></section>
+
+<section id="spaces"><div class="wrap">
+  <h2>Built for places where people never stop moving.</h2>
+  <p class="lead">KYNEX fits wherever foot traffic is dense and constant.</p>
+  <div class="cards">
+    <article class="sp"><div class="top"><i data-lucide="plane"></i></div><div class="b"><h3>Commercial &amp; Transport</h3><div class="chips"><span>Malls</span><span>Retail</span><span>Hotels</span><span>Convention centers</span><span>Airports</span><span>Transit stations</span></div></div></article>
+    <article class="sp"><div class="top"><i data-lucide="building-2"></i></div><div class="b"><h3>Corporate &amp; Education</h3><div class="chips"><span>Office buildings</span><span>Corporate sites</span><span>Universities</span><span>Schools</span></div></div></article>
+    <article class="sp"><div class="top"><i data-lucide="landmark"></i></div><div class="b"><h3>Public &amp; Lifestyle</h3><div class="chips"><span>Gyms</span><span>Entertainment venues</span><span>Smart cities</span><span>Public spaces</span></div></div></article>
+  </div>
+</div></section>
+
+<section id="impact" class="alt"><div class="wrap">
+  <h2>Clean energy that fits the way people already live.</h2>
+  <div class="vals">
+    <div class="val"><i data-lucide="leaf"></i><h3>Renewable power</h3><p>Converts human foot traffic and movement into clean electricity in high-density areas.</p></div>
+    <div class="val"><i data-lucide="trending-down"></i><h3>Eco and cost efficiency</h3><p>A modern alternative to traditional power that helps businesses lower energy consumption and carbon footprint.</p></div>
+    <div class="val"><i data-lucide="cpu"></i><h3>Tech-driven design</h3><p>Blends technology, sustainability and contemporary design into a functional, natural energy solution.</p></div>
+  </div>
+  <div class="sup"><h3>Full-service support, from plan to performance.</h3>
+    <ul><li><i data-lucide="wrench"></i>Solutions tailored to your space</li><li><i data-lucide="hard-hat"></i>Professional installation</li><li><i data-lucide="activity"></i>Ongoing maintenance with performance monitoring</li></ul></div>
+</div></section>
+
+<section id="contact"><div class="wrap ct">
+  <div><h2>Let us design a KYNEX floor for your space.</h2><p class="lead">Tell us about your venue and foot traffic. We will come back with a tailored proposal.</p></div>
+  <form class="form" id="form">
+    <label>Full name<input name="name" required autocomplete="name"></label>
+    <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+    <label class="full">Organization or venue<input name="org" required autocomplete="organization"></label>
+    <label>Space type<select name="type" required><option value="">Select…</option><option>Commercial &amp; Transport</option><option>Corporate &amp; Education</option><option>Public &amp; Lifestyle</option><option>Other</option></select></label>
+    <label>Estimated daily foot traffic<select name="traffic" required><option value="">Select…</option><option>Under 1,000 people</option><option>1,000 to 5,000</option><option>5,000 to 20,000</option><option>Over 20,000</option></select></label>
+    <label class="full">Notes<textarea name="notes" placeholder="Timeline, area to cover, goals…"></textarea></label>
+    <div class="full"><button class="btn pri" type="submit">Request a Proposal</button></div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <div><a class="logo" href="#solution">KYNEX</a><p style="margin-top:10px;max-width:38ch">Seamlessly capturing pedestrian traffic to generate clean electrical power.</p></div>
+  <div class="l"><a href="#solution">Solution</a><a href="#how">How It Works</a><a href="#spaces">Spaces</a><a href="#impact">Impact</a><a href="#contact">Contact</a></div>
+  <p style="width:100%">© 2026 KYNEX. All rights reserved.</p>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+document.documentElement.classList.add('js');
+lucide.createIcons();
+/* nav */
+const nav=$('#nav'),menu=$('#menu'),bg=$('#burger');
+addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>8),{passive:true});
+bg.onclick=()=>{const o=menu.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+menu.onclick=()=>menu.classList.remove('open');
+/* steps reveal: one staggered sequence */
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.25}):null;
+document.querySelectorAll('.step').forEach((s,i)=>{s.style.transitionDelay=i*120+'ms';io?io.observe(s):s.classList.add('in')});
+/* simulator */
+const N=6,tl=$('#tiles'),W=$('#walker'),meter=$('#meter'),gen=$('#gen'),rail=$('#rail');
+let steps=0,mwh=0,lvl=0,walking=false,auto=null;
+for(let i=0;i<N;i++){const b=document.createElement('button');b.className='tile';b.setAttribute('aria-label','Step on tile '+(i+1));b.onclick=()=>hit(i);tl.appendChild(b)}
+for(let i=0;i<10;i++)meter.appendChild(document.createElement('span'));
+const tiles=[...tl.children],segs=[...meter.children];
+const restart=(el,c)=>{el.classList.remove(c);void el.offsetWidth;el.classList.add(c)};
+function paint(){
+  segs.forEach((s,i)=>s.classList.toggle('on',i<Math.round(lvl)));
+  $('#s1').textContent=steps;$('#s2').textContent=mwh.toFixed(2)+' mWh';$('#s3').textContent=Math.round(mwh*3.6)+' s';
+}
+function hit(i){
+  const t=tiles[i];t.classList.add('dn');setTimeout(()=>t.classList.remove('dn'),170);
+  steps++;mwh+=.9+Math.random()*.5;lvl=Math.min(10,lvl+2.4);
+  restart(gen,'sp');restart(rail,'fl');paint();
+}
+setInterval(()=>{if(lvl>0){lvl=Math.max(0,lvl-.3);paint()}},140);
+function walk(){
+  if(walking)return;walking=true;
+  W.classList.add('nt');W.style.left='-8%';void W.offsetWidth;W.classList.remove('nt');W.style.opacity=1;
+  let i=0;const ms=auto?200:340;
+  (function go(){
+    W.style.left=((i+.5)/N*100)+'%';
+    setTimeout(()=>{hit(i);i++;
+      if(i<N)go();else{W.style.left='108%';setTimeout(()=>{W.style.opacity=0;walking=false},ms+60)}},ms);
+  })();
+}
+$('#walk').onclick=walk;
+$('#rush').onclick=e=>{
+  const on=e.currentTarget.getAttribute('aria-pressed')!='true';
+  e.currentTarget.setAttribute('aria-pressed',on);
+  clearInterval(auto);auto=null;
+  if(on){walk();auto=setInterval(walk,1500)}
+};
+$('#rst').onclick=()=>{steps=0;mwh=0;lvl=0;paint()};
+paint();
+/* form */
+$('#form').onsubmit=e=>{
+  e.preventDefault();const f=e.target,n=f.name.value.trim().split(' ')[0]||'there';
+  f.innerHTML=`<div class="ok"><i data-lucide="circle-check"></i><h3>Thank you, ${n.replace(/[<>&"]/g,'')}.</h3><p>Your request is in. The KYNEX team will contact you shortly with a tailored proposal.</p><button class="btn" type="button" onclick="location.reload()">Send another request</button></div>`;
+  lucide.createIcons();
+};
+</script>
+</body>
+</html>
